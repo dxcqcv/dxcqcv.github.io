@@ -13,3 +13,4 @@ var greeter = new Greeter("Hello, world!");
 //document.body.innerHTML = greeter.greet();
 
 let s = require('../css/index.styl');
+console.log('js works');

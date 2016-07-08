@@ -16,6 +16,7 @@ webpackJsonp([0,1],[
 	var greeter = new Greeter("Hello, world!");
 	//document.body.innerHTML = greeter.greet();
 	var s = __webpack_require__(1);
+	console.log('js works');
 
 
 /***/ },
