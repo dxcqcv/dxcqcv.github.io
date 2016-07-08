@@ -14,7 +14,6 @@ title:            'Shang Wen Long'
 name:             'Shang Wen Long'
 #tagline:          ''
 description:      'Programmer'
-url:              'http://shangwenlong.github.io'
 #baseurl:              '/'
 # blogurl:          /blog/
 # Assets
@@ -23,7 +22,7 @@ url:              'http://shangwenlong.github.io'
 
 author:
   name:           'Shang Wen Long'
-  url:            shangwenlong.github.io
+  url:            'dxcqcv.github.io'
   email:          'dxcqcv@gmail.com'
   github:         'https://github.com/dxcqcv'
   facebook:       'http://www.facebook.com/shang.roy'
@@ -38,7 +37,7 @@ author:
 version:          1.0.0
 
 github:
-  repo:          'https://github.com/dxcqcv/shangwenlong.github.io' 
+  repo:          'https://github.com/dxcqcv/dxcqcv.github.io' 
 
 # Collections
 #collections:
