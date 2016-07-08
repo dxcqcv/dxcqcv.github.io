@@ -28,6 +28,7 @@ module.exports = {
   entry: getEntryList(),
   output: {
     path: PATHS.bin,
+    publicPath: '/dxcqcv.github.io/',
     filename: 'js/[name].js'
   },
       // Enable sourcemaps for debugging webpack's output.
