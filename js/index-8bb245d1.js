@@ -1,4 +1,4 @@
-webpackJsonp([0,1],[
+webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -16,15 +16,11 @@ webpackJsonp([0,1],[
 	var greeter = new Greeter("Hello, world!");
 	//document.body.innerHTML = greeter.greet();
 	var s = __webpack_require__(1);
+	//let h = require('../_layouts/default.pug');
 	console.log('js works');
+	console.log('hash works');
 
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
 ]);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index-8bb245d1.js.map

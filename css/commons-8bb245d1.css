@@ -1,3 +1,10 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #ff0;
+}
 main {
   max-width: 75rem;
   width: 100%;
@@ -29,4 +36,4 @@ aside {
   color: #f00;
 }
 
-/*# sourceMappingURL=index.css.map*/
+/*# sourceMappingURL=commons-8bb245d1.css.map*/

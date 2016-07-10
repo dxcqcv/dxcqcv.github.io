@@ -14,24 +14,28 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.13.0",
+    "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "gulp-html-validator": "0.0.5",
     "gulp-pug": "^3.0.3",
+    "gulp-pug-lint": "^0.1.6",
+    "gulp-util": "^3.0.7",
+    "gulp-w3cjs": "^1.2.0",
+    "html-webpack-plugin": "^2.22.0",
     "jshint": "^2.9.2",
+    "jshint-loader": "^0.8.3",
     "path": "^0.12.7",
     "postcss-loader": "^0.9.1",
+    "pug-html-loader": "^1.0.8",
+    "pug-loader": "^1.0.2",
     "style-loader": "^0.13.1",
     "stylus-loader": "^2.1.1",
-    "url-loader": "^0.5.7",
-    "gulp-util": "^3.0.7",
-    "jshint-loader": "^0.8.3",
-    "pug-load": "^2.0.0",
-    "ts-loader": "^0.8.2"
+    "ts-loader": "^0.8.2",
+    "url-loader": "^0.5.7"
   },
-  "dependencies": {
-  },
-
+  "dependencies": {},
   "bugs": {
     "url": "https://github.com/dxcqcv/shangwenlong.github.io/issues"
   },
