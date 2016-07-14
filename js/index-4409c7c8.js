@@ -23,4 +23,3 @@ webpackJsonp([0],[
 
 /***/ }
 ]);
-//# sourceMappingURL=index-8bb245d1.js.map

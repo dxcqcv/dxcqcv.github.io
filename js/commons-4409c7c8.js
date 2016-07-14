@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".js/" + ({"0":"index","1":"pages"}[chunkId]||chunkId) + "-" + "8bb245d1" + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".js/" + ({"0":"index","1":"pages"}[chunkId]||chunkId) + "-" + "4409c7c8" + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -88,7 +88,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "{{site.baseurl}}//";
+/******/ 	__webpack_require__.p = "./";
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -100,4 +100,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=commons-8bb245d1.js.map
+//# sourceMappingURL=commons-4409c7c8.js.map

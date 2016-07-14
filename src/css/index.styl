@@ -1,6 +1,5 @@
 @import 'includes/global'
 
-
 //
 // Variables for em / rem use
 //
@@ -33,20 +32,29 @@ Cols( colspan = $default-colspan, total_cols = $default-total_cols )
   width: ( colspan * ( 100 / total_cols ) ) % 
   float: left
 
+$default-alignPad-top = 40 * $toRems
+$default-alignPad-left = 20 * $toRems
+
+AlignPad(top = $default-alignPad-top, left = $default-alignPad-top)
+  padding-top: top
+  padding-left: left
+
 main
-  Row()
+  Row('auto')
   background-color: #ccc
   min-height: 200 * $toRems
 
 article
-  Cols( 1 )
+  Cols( 3 )
+  AlignPad()
   min-height: 500 * $toRems
   background: #ddd
 
 aside
-  Cols( 3 )
+  Cols( 1 )
+  AlignPad()
+  background: $main-color
   min-height: 500 * $toRems
-  background: #eee
 
 .lead
-  color: red
+  color: blue

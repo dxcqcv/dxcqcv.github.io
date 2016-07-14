@@ -1,20 +1,69 @@
-var gulp = require('gulp');
-let gutil = require('gulp-util');
-var pug = require('gulp-pug');
-let webpack = require('webpack');
-let webpackConfig = require('./webpack.config.js');
-let puglint = require('gulp-pug-lint');
-let htmlv = require('gulp-html-validator');
-let w3cjs = require('gulp-w3cjs');
-let htmlExculds = '!./src/_layouts/default.pug';
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const browserSync = require('browser-sync').create();
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
+const htmlv = require('gulp-html-validator');
+const w3cjs = require('gulp-w3cjs');
+const cp = require('child_process');
 
-/*************** watch ************************/
-gulp.task('watch', function(){
-  gulp.watch(['./src/**/*.pug',htmlExculds ],['html']); 
-  gulp.watch(['./src/**/*.styl','./src/**/*.ts','./src/_layouts/default.pug'],['webpack']); 
+const siteRoot = '_site';
+const jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+
+/**
+ * browserSync server
+ */
+gulp.task('serve', () => {
+  browserSync.init({
+    files: [siteRoot + '/**'],
+    port: 4000,
+    server: {
+      baseDir: siteRoot
+    }
+  });
 });
 
-/*************** pug to html ************************/
+/**
+ * Build the jekyll site
+ gulp.task('jekyll-build', function(done) {
+   return cp.spawn( jekyll, ['build'], {stdio: 'inherit'} )
+            .on('close', done);
+ });
+*/
+gulp.task('jekyll',() => {
+  const jekyll = cp.spawn(jekyll, ['build',
+    '--watch',
+    '--incremental',
+    '--drafts'
+  ]);
+  
+  const jekyllLogger = (buffer) => {
+    buffer.toString()
+      .split(/\n/)
+      .forEach((message) => gutil.log('Jekyll: '+message));
+  }
+  
+  jekyll.stdout.on('data', jekyllLogger);
+  jekyll.stderr.on('data', jekyllLogger);
+});
+
+ /**
+  * reload
+  */
+gulp.task('reload',['jekyll-build'],function(){
+  browserSync.reload();
+});
+
+/**
+ * gulp watch
+ */
+gulp.task('default', ['webpack'], function(){
+  gulp.watch(['index.html','js/*','css/*','_include/*','_posts/*','_layouts/*'],['reload']);
+});
+
+
+
+/*************** validator html ************************/
 gulp.task('hc', function(){
   return gulp.src('_site/index.html')
              .pipe(htmlv())
@@ -26,21 +75,14 @@ gulp.task('hc2', function(){
              .pipe(w3cjs.reporter())
              .pipe(gulp.dest('./test/'));
 });
-/*************** pug to html ************************/
-gulp.task('html', function(){
-  return gulp.src(['./src/*.pug','./src/**/*.pug',htmlExculds ])
-             .pipe(puglint())
-             .pipe(pug({pretty:true}))
-             .pipe(gulp.dest('./'));
-});
+
 
 /*************** webpack ************************/
-gulp.task('webpack', function(callback){
-  webpack(webpackConfig, function(err,stats){
-    if(err) throw new gutil.PluginError('webpack', err);
-    gutil.log('webpack', stats.toString({
-      colors: true
-    }));      
-    callback();
-  });
-});
+gulp.task('webpack', ['jekyll-build'], function(){
+  return webpack(webpackConfig, function(err,stats){
+            if(err) throw new gutil.PluginError('webpack', err);
+            gutil.log('webpack', stats.toString({
+              colors: true
+            }));      
+          });
+        });
