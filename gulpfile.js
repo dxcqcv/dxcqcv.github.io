@@ -8,30 +8,27 @@ const w3cjs = require('gulp-w3cjs');
 const cp = require('child_process');
 
 const siteRoot = '_site';
-const jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+const jekyllCommand   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 /**
  * browserSync server
  */
 gulp.task('serve', () => {
   browserSync.init({
+  /*
     files: [siteRoot + '/**'],
     port: 4000,
+    */
     server: {
       baseDir: siteRoot
     }
   });
+  gulp.watch(['src/**/*'],['webpack']);
 });
 
-/**
- * Build the jekyll site
- gulp.task('jekyll-build', function(done) {
-   return cp.spawn( jekyll, ['build'], {stdio: 'inherit'} )
-            .on('close', done);
- });
-*/
+
 gulp.task('jekyll',() => {
-  const jekyll = cp.spawn(jekyll, ['build',
+  const jekyll = cp.spawn(jekyllCommand, ['build',
     '--watch',
     '--incremental',
     '--drafts'
@@ -47,19 +44,12 @@ gulp.task('jekyll',() => {
   jekyll.stderr.on('data', jekyllLogger);
 });
 
- /**
-  * reload
-  */
-gulp.task('reload',['jekyll-build'],function(){
-  browserSync.reload();
-});
+
 
 /**
  * gulp watch
  */
-gulp.task('default', ['webpack'], function(){
-  gulp.watch(['index.html','js/*','css/*','_include/*','_posts/*','_layouts/*'],['reload']);
-});
+gulp.task('default', ['webpack', 'jekyll', 'serve']);
 
 
 
@@ -78,7 +68,7 @@ gulp.task('hc2', function(){
 
 
 /*************** webpack ************************/
-gulp.task('webpack', ['jekyll-build'], function(){
+gulp.task('webpack', function(){
   return webpack(webpackConfig, function(err,stats){
             if(err) throw new gutil.PluginError('webpack', err);
             gutil.log('webpack', stats.toString({
