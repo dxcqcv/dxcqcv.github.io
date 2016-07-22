@@ -2,8 +2,19 @@
 
 const webpack = require('webpack');
 
+const debug = process.env.NODE_ENV !== 'production';
+
+
+/**
+ * postcss
+ */
+const autoprefixer = require('autoprefixer'); 
+/**
+ * refence
+ */
+const siteRoot = '_site';
 // for browserSync
-//const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // for clean folders before building
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 // for creation of HTML
@@ -77,6 +88,28 @@ module.exports = {
       }
     ],
     loaders: [
+        {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash].[ext]"
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash].[ext]"
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash].[ext]"
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file?&name=./fonts/[name]-[hash].[ext]"
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash].[ext]"
+      },
+      /********* css to js */
+      {
+        test: /\.css$/,
+        exclude: ['/node_modules/'],
+        loader: ExtractTextPlugin.extract('style',['css','postcss'],{publicPath:'.'})
+      },
       /********* pug to js */
       {
         test:/\.pug$/,
@@ -96,20 +129,23 @@ module.exports = {
       {
         test: /\.styl$/,
         exclude: ['/node_modules/','/src/css/includes/'],
-        loader: ExtractTextPlugin.extract('style',['css','stylus'])
+        loader: ExtractTextPlugin.extract('style',['css','postcss','stylus'])
       },
       /********* url loader*/
       {
-        test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+        test: /\.(png|jpg)$/,
         exclude: /node_modules/,
         loader: 'url-loader?limit=8192&name=[name]-[hash:8].[ext]'
       }
     ]
   },
+  postcss: () => {
+    return [autoprefixer];
+  },
   watch: true,
   plugins: [
     /** clean folders */
-    new CleanWebpackPlugin(['css','js'],{
+    new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
       root: __dirname,
       verbose: true,
       dry: false 
@@ -118,13 +154,12 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin("commons", "js/commons-[hash:8].js"),
     /** extract css */
     new ExtractTextPlugin('css/[name]-[hash:8].css'),
-    /*
     new BrowserSyncPlugin({
+      files: [siteRoot + '/**'],
       host: 'localhost',
       port: 3000,
-      server: { baseDir: ['_site'] }
-    },{reload:false})
-    */
+      server: { baseDir: [siteRoot] }
+    },{reload:true})
   ].concat(entryHtmlPlugins),
   jshint: {
     esversion: 6

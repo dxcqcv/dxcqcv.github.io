@@ -1,9 +1,16 @@
-article
-  h2 {{ page.title }}
-  p recent pages3
-  ul
-    |{% for post in site.posts %}
-    li 
-      |{{ post.date | date_to_string }} 
-      a( href="{{ site.baseurl }}{{ post.url }}" ) {{ post.title }}
-    |{% endfor %}
+session
+  |{% for post in site.posts %}
+  article
+    h1 
+      a(href="{{ site.baseurl }}{{ post.url }}")
+        |{{ post.title | markdownify }}
+    |{% if post.subtitle %}
+    h3.post-subtitle
+      |{{ post.subtitle | markdownify }}
+    |{% endif %}
+    span.post-date
+      |{{ post.date | date_to_string }}
+    |{{ post.excerpt | markdownify }}
+  |{% endfor %}
+  
+  

@@ -1,0 +1,11 @@
+.pagination
+  |{% if paginator.previous_page %}
+  a.pagination-item.newer(href="{{ site.baseurl }}/{% if paginator.page > 2 %}page{{ paginator.previous_page }}{% endif %}")
+    i.fa.fa-arrow-left
+    |Newer
+  |{% endif %}
+  |{% if paginator.next_page %}
+  a.pagination-item.older(href="{{ site.baseurl }}/page{{ paginator.next_page }}")
+    |Older
+    i.fa.fa-arrow-right
+  |{% endif %}

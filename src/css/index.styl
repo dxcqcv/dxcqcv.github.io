@@ -1,60 +1,64 @@
 @import 'includes/global'
 
-//
-// Variables for em / rem use
-//
-$base_font_size = 16
-$toRems = (  1 / $base_font_size ) rem
-$toEms = (  1 / $base_font_size ) em
+$default-alignPad-top = unit($golden_major, rem)
+$default-alignPad-left = unit($phi, rem)
 
-
-//
-// Grid mixins
-//
-$default-width = 1200 * $toRems
-$default-colspan = 1
-$default-total_cols = 4
-
-Row( width=$default-width )
-  max-width: width
-  width: 100%
-  margin: 0 auto
-  // clear at the end of container
-  &:before,
-  &:after
-    content: ''
-    display: table
-  &:after
-    clear: both
-
-
-Cols( colspan = $default-colspan, total_cols = $default-total_cols )    
-  width: ( colspan * ( 100 / total_cols ) ) % 
-  float: left
-
-$default-alignPad-top = 40 * $toRems
-$default-alignPad-left = 20 * $toRems
-
-AlignPad(top = $default-alignPad-top, left = $default-alignPad-top)
-  padding-top: top
-  padding-left: left
+AlignPad(top = $default-alignPad-top, left = $default-alignPad-left)
+  padding top left
 
 main
   Row('auto')
-  background-color: #ccc
-  min-height: 200 * $toRems
+  background-color   #ccc
+  min-height   px(200)   
 
-article
-  Cols( 3 )
+session
+  Cols( 3.25 )
   AlignPad()
-  min-height: 500 * $toRems
-  background: #ddd
+  min-height   px(500)   
+  background   #ddd
 
 aside
-  Cols( 1 )
+  Cols( .75 )
   AlignPad()
-  background: $main-color
-  min-height: 500 * $toRems
+  background   $highlight_color
+  min-height   px(500)   
 
 .lead
-  color: blue
+  color $highlight_textover   
+
+a.sidebar-nav-item
+  color   #fff
+  display   block
+  padding 1em 0    
+  &:hover
+    color $highlight_hover
+
+.sidebar-about > h1 
+  color   #fff
+  
+nav 
+  padding  unit($phi, em) 0  
+
+  
+.list-inline
+  display flex
+  justify-content space-between 
+  color $highlight_textover
+  & > li > a
+    display inline-block
+    text-align center
+    line-height px(40, 16)
+    width   px(40, 16)   
+    height   @width 
+    border-radius   100%
+    background   #fff
+
+#credits
+  padding-top unit($phi, em)
+  color $highlight_textover
+  display block
+  
+.post-date
+  display block
+  color $highlight_lightened
+  padding-bottom 1rem

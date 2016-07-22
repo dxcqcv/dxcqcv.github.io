@@ -5,51 +5,47 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const htmlv = require('gulp-html-validator');
 const w3cjs = require('gulp-w3cjs');
-const cp = require('child_process');
-
+const child = require('child_process');
+const srcFiles = 'src/**';
 const siteRoot = '_site';
 const jekyllCommand   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+var messages = {
+    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+};
 
 /**
- * browserSync server
+ * move fonts
  */
-gulp.task('serve', () => {
-  browserSync.init({
-  /*
-    files: [siteRoot + '/**'],
-    port: 4000,
-    */
-    server: {
-      baseDir: siteRoot
-    }
-  });
-  gulp.watch(['src/**/*'],['webpack']);
+gulp.task('fonts',['webpack'], () => {
+  return gulp.src(['*.otf','*.eot','*.svg','*.ttf','*.woff','*.woff2'])
+          .pipe(gulp.dest('./fonts'));
 });
 
-
-gulp.task('jekyll',() => {
-  const jekyll = cp.spawn(jekyllCommand, ['build',
+/**
+ * start jekyll with watch
+ */
+gulp.task('jekyll', () => {
+  const jekyll = child.spawn('jekyll', ['build',
     '--watch',
     '--incremental',
     '--drafts'
   ]);
-  
+
   const jekyllLogger = (buffer) => {
     buffer.toString()
       .split(/\n/)
-      .forEach((message) => gutil.log('Jekyll: '+message));
-  }
-  
+      .forEach((message) => gutil.log('Jekyll: ' + message));
+  };
+
   jekyll.stdout.on('data', jekyllLogger);
   jekyll.stderr.on('data', jekyllLogger);
 });
 
-
-
 /**
- * gulp watch
+ * default task that first webpack then jekyll
  */
-gulp.task('default', ['webpack', 'jekyll', 'serve']);
+gulp.task('default', [ 'webpack','jekyll' ]);
+
 
 
 
@@ -74,5 +70,5 @@ gulp.task('webpack', function(){
             gutil.log('webpack', stats.toString({
               colors: true
             }));      
-          });
         });
+});

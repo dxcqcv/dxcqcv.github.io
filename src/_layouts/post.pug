@@ -1,0 +1,10 @@
+.post
+  h1.post-title
+    |{{ page.title | markdownify }}
+  |{% if page.subtitle %}
+  h3.post-subtitle
+    |{{ page.subtitle | markdownify }}
+  |{% endif %}
+  span.post-date
+    |{{ page.date | date_to_string }}
+  |{{ content }}
