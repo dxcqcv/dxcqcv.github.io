@@ -17,6 +17,9 @@ doctype html
 
   body
     block IEcondition
-    .container {{ content }}
+    <main>
+      |{% include sidebar.html %}
+      |{{ content }}
+    </main>
 
 |</html>

@@ -113,7 +113,7 @@ module.exports = {
       /********* pug to js */
       {
         test:/\.pug$/,
-        exclude: /node_modules/,
+        exclude: ['/node_modules/','src/layouts/post.pug'],
         loader: 'pug-html-loader',
         query: {
           pretty: true

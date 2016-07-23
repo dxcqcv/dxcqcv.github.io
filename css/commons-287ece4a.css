@@ -155,6 +155,78 @@ h6 {
   font-size: 1em;
   margin: 0.75em 0;
 }
+@media (max-width: 20.125rem) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Exo 2', 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+    line-height: 1.313em;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 1.5em;
+    margin: 0.563em 0;
+  }
+  h2 {
+    font-size: 1.125em;
+    margin: 0.625em 0;
+  }
+  h3 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h4 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h5 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h6 {
+    font-size: 1em;
+    margin: 0.75em 0;
+  }
+}
+@media (max-width: 10rem) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Exo 2', 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+    line-height: 1.313em;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 1em;
+    margin: 0.563em 0;
+  }
+  h2 {
+    font-size: 1em;
+    margin: 0.625em 0;
+  }
+  h3 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h4 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h5 {
+    font-size: 1em;
+    margin: 1.313em 0;
+  }
+  h6 {
+    font-size: 1em;
+    margin: 0.75em 0;
+  }
+}
 html,
 body {
   height: 100%;
@@ -169,11 +241,17 @@ img {
   max-width: 100%;
   height: auto;
 }
-.container,
 main,
 aside,
 session {
   height: 100%;
+}
+@media (max-width: 48.125rem) {
+  main,
+  aside,
+  session {
+    height: auto;
+  }
 }
 a {
   text-decoration: none;
@@ -190,7 +268,6 @@ main {
   max-width: 'auto';
   width: 100%;
   margin: 0 auto;
-  background-color: #ccc;
   min-height: 12.5rem;
 }
 main:before,
@@ -208,12 +285,58 @@ session {
   min-height: 31.25rem;
   background: #ddd;
 }
+@media (max-width: 100rem) {
+  session {
+    width: 75%;
+    float: left;
+  }
+}
+@media (max-width: 68.75rem) {
+  session {
+    width: 67.5%;
+    float: left;
+  }
+}
+@media (max-width: 48.125rem) {
+  session {
+    width: 100%;
+    float: left;
+  }
+}
+@media (max-width: 7.1875rem) {
+  session {
+    background: transparent;
+  }
+}
 aside {
   width: 18.75%;
   float: left;
   padding: 0.618rem 1.618rem;
   background: #75b5aa;
   min-height: 31.25rem;
+}
+@media (max-width: 100rem) {
+  aside {
+    width: 25%;
+    float: left;
+  }
+}
+@media (max-width: 68.75rem) {
+  aside {
+    width: 32.5%;
+    float: left;
+  }
+}
+@media (max-width: 48.125rem) {
+  aside {
+    width: 100%;
+    float: left;
+  }
+}
+@media (max-width: 7.1875rem) {
+  aside {
+    background: transparent;
+  }
 }
 .lead {
   color: #b2e0d8;
@@ -223,11 +346,21 @@ a.sidebar-nav-item {
   display: block;
   padding: 1em 0;
 }
+@media (max-width: 7.1875rem) {
+  a.sidebar-nav-item {
+    color: #000;
+  }
+}
 a.sidebar-nav-item:hover {
   color: #7fcbbe;
 }
 .sidebar-about > h1 {
   color: #fff;
+}
+@media (max-width: 7.1875rem) {
+  .sidebar-about > h1 {
+    color: #000;
+  }
 }
 nav {
   padding: 1.618em 0;
@@ -240,6 +373,11 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #b2e0d8;
+}
+@media (max-width: 15.625rem) {
+  .list-inline {
+    display: block;
+  }
 }
 .list-inline > li > a {
   display: inline-block;
@@ -261,4 +399,4 @@ nav {
   padding-bottom: 1rem;
 }
 
-/*# sourceMappingURL=commons-ad009e96.css.map*/
+/*# sourceMappingURL=commons-287ece4a.css.map*/
