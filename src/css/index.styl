@@ -8,12 +8,10 @@ AlignPad(top = $default-alignPad-top, left = $default-alignPad-left)
 
 main
   Row('auto')
-  min-height   px(200)   
 
 session
   Cols( 3.25 )
   AlignPad()
-  min-height   px(500)   
   background   #ddd
   @media (max-width: px(1600))
     Cols( 3 )
@@ -23,11 +21,11 @@ session
     Cols( 4 )
   @media (max-width: px(115))
     background transparent
+    
 aside
   Cols( .75 )
   AlignPad()
   background   $highlight_color
-  min-height   px(500)   
   @media (max-width: px(1600))
     Cols( 1 )
   @media (max-width: px(1100))

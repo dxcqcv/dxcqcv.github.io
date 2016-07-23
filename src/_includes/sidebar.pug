@@ -15,4 +15,5 @@ aside
         - else
         a(href=val target="_blank")
           i(class="fa fa-"+index+''  aria-hidden="true")
-  small#credits &copy; 2016. Credits.
+  small#credits &copy; {{ site.time | date: '%Y' }}.  
+    a(href="{{ site.baseurl }}/credits") Credits.
