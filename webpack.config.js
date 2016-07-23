@@ -68,7 +68,7 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
-    publicPath: '{{site.baseurl}}/',
+    publicPath: debug ? './':'{{site.baseurl}}/',
     filename: 'js/[name]-[hash:8].js'
   },
       // Enable sourcemaps for debugging webpack's output.
@@ -89,19 +89,19 @@ module.exports = {
     loaders: [
         {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash].[ext]"
+        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash].[ext]"
+        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash].[ext]"
+        loader: "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file?&name=./fonts/[name]-[hash].[ext]"
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash].[ext]"
+        loader: "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash:8].[ext]"
       },
       /********* css to js */
       {
@@ -142,7 +142,7 @@ module.exports = {
     return [autoprefixer];
   },
   watch: true,
-  plugins: [
+  plugins: debug ? [
     /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
       root: __dirname,
@@ -158,8 +158,22 @@ module.exports = {
       host: 'localhost',
       port: 3000,
       server: { baseDir: [siteRoot] }
-    },{reload:true})
-  ].concat(entryHtmlPlugins),
+    },{reload:true})  
+  ].concat(entryHtmlPlugins):[
+        /** clean folders */
+    new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
+      root: __dirname,
+      verbose: true,
+      dry: false 
+    }),
+    /** commonsPlugin */
+    new webpack.optimize.CommonsChunkPlugin("commons", "js/commons-[hash:8].js"),
+    /** extract css */
+    new ExtractTextPlugin('css/[name]-[hash:8].css'),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ],
   jshint: {
     esversion: 6
   }
