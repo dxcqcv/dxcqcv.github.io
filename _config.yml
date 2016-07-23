@@ -24,8 +24,8 @@ description:      'Programmer'
 baseurl:              
 # blogurl:          /blog/
 # Assets
-#images:         '/img'
-#pdfs:           '/pdf'
+images:         '/images'
+pdfs:           '/pdf'
 
 author:
   name:           'Shang Wen Long'
