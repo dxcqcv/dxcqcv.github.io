@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="post">
+<session>
   <h1 class="post-title">{{ page.title | markdownify }}</h1>{% if page.subtitle %}
   <h3 class="post-subtitle">{{ page.subtitle | markdownify }}</h3>{% endif %}<span class="post-date">{{ page.date | date_to_string }}</span>{{ content }}
-</div>
+</session>
