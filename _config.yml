@@ -20,7 +20,7 @@ gems:
   - jekyll-feed
 
 # Permalinks
-#permalink:              /blog/:categories/:title/
+permalink:              /blog/:categories/:title/
 # permalink:            blog/:categories/:year/:month/:day/:title/
 timezone: Asia/Shanghai
 # Setup
