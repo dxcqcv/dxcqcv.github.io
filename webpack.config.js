@@ -69,7 +69,7 @@ module.exports = {
   output: {
     path: PATHS.bin,
     publicPath: debug ? './':'{{site.baseurl}}/',
-    filename: 'js/[name]-[hash:8].js'
+    filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
       // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
@@ -89,19 +89,19 @@ module.exports = {
     loaders: [
         {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
+        loader: debug? "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
+        loader: debug? "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]" :"url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash:8].[ext]"
+        loader: debug? "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file?&name=./fonts/[name]-[hash].[ext]"
+        loader: debug? "file?&name=./fonts/[name].[ext]":"file?&name=./fonts/[name]-[hash:8].[ext]"
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash:8].[ext]"
+        loader: debug? "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash:8].[ext]"
       },
       /********* css to js */
       {
@@ -150,9 +150,9 @@ module.exports = {
       dry: false 
     }),
     /** commonsPlugin */
-    new webpack.optimize.CommonsChunkPlugin("commons", "js/commons-[hash:8].js"),
+    new webpack.optimize.CommonsChunkPlugin("commons", "js/commons.js"),
     /** extract css */
-    new ExtractTextPlugin('css/[name]-[hash:8].css'),
+    new ExtractTextPlugin('css/[name].css'),
     new BrowserSyncPlugin({
       files: [siteRoot + '/**'],
       host: 'localhost',
@@ -171,9 +171,8 @@ module.exports = {
     /** extract css */
     new ExtractTextPlugin('css/[name]-[hash:8].css'),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  ].concat(entryHtmlPlugins),
   jshint: {
     esversion: 6
   }
