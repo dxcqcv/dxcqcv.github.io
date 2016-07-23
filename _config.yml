@@ -1,11 +1,4 @@
-default:
-  -
-    scope:
-      path: ''
-      type: 'posts'
-    values:
-      layout: 'default'
-      title: "shang wenlong's blog"
+
       
 exclude:
   - package.json
