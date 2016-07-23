@@ -68,8 +68,7 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
-//    publicPath: '{{site.baseurl}}/',
-    publicPath: './',
+    publicPath: '{{site.baseurl}}/',
     filename: 'js/[name]-[hash:8].js'
   },
       // Enable sourcemaps for debugging webpack's output.
