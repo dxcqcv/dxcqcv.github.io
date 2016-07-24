@@ -1,11 +1,11 @@
 aside
   .sidebar-about
     h1 
-      a Shang Wen Long
+      a.name(href="/") Shang Wen Long
     p.lead Front-End developer
   nav
-    each val in ['Blog','About', 'Resume', 'Projects']
-      a.sidebar-nav-item(href="/")= val
+    each val, index in {'Blog':'/','About':'{{ site.baseurl }}/about/', 'Resume':'/', 'Projects':'/'}
+      a.sidebar-nav-item(href=val)= index
   ul.list-inline
     each val, index in{envelope:'mailto:dxcqcv@gmail.com',github:'https://github.com/dxcqcv',twitter:'https://twitter.com/dxcqcv',linkedin:'http://www.linkedin.com/in/wenlong-shang-603a412b?trk=hp-identity-name',wechat:'/images/shangwenlong-wechat.png'}
       li
