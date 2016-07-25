@@ -7,6 +7,7 @@ tilte: webpack for jekyll
 - because you can build github page site with webpack, jade and stylus, so nice.
 
 # before start
+
 1. you should know [webpack](https://webpack.github.io/)
 2. you should know [jade](http://jade-lang.com/)
 3. you should know [stylus](http://stylus-lang.com/)
@@ -17,9 +18,9 @@ tilte: webpack for jekyll
 
 1. install pug-loader and html-webpack-plugin 
 
-```
+~~~
 npm i pug-loader html-webpack-plugin -S
-```
+~~~
 
 2. loade multiple pug then output html for jekyll
     
