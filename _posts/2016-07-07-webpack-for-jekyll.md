@@ -15,14 +15,11 @@ tilte: webpack for jekyll
 
 ## webpack for jade (pug is new name for jade)
 
-* install pug-loader and html-webpack-plugin 
-
+install pug-loader and html-webpack-plugin 
 
         npm i pug-loader html-webpack-plugin -S
     
-    
-* loade multiple pug then output html for jekyll
-    
+loade multiple pug then output html for jekyll
     
         // for creation of HTML
         const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -69,13 +66,11 @@ tilte: webpack for jekyll
 
 ## webpack for stylus
 
-* install stylus-loader and extract-text-webpack-plugin
-
+install stylus-loader and extract-text-webpack-plugin
 
         npm i stylus-loader extract-text-webpack-plugin -S
     
-    
-* load multiple stylus then extract css for html
+load multiple stylus then extract css for html
 
         // for extract css
         const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -124,13 +119,12 @@ tilte: webpack for jekyll
 
 ## webpack for font-awesome
 
-* install url-loader file-loader
-
+install url-loader file-loader
 
         npm i font-awesome url-loader file-loader -S
 
+config woff, woff2, ttf, eot, svg for font-awesome
 
-* config woff, woff2, ttf, eot, svg for font-awesome
         ...
         loaders: [
             {
@@ -153,14 +147,11 @@ tilte: webpack for jekyll
 
 ## local debug jekyll
 
-* install browser-sync, browser-sync-webpack-plugin, gulp 
-
+install browser-sync, browser-sync-webpack-plugin, gulp 
 
         npm i browser-sync browser-sync-webpack-plugin gulp -S
 
-
-* build webpack then start jekyll in child_process
-
+build webpack then start jekyll in child_process
 
         const webpackConfig = require('./webpack.config.js');
         const child = require('child_process');
