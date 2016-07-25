@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const browserSync = require('browser-sync').create();
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const htmlv = require('gulp-html-validator');
@@ -13,13 +12,7 @@ var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
-/**
- * move fonts
- */
-gulp.task('fonts',['webpack'], () => {
-  return gulp.src(['*.otf','*.eot','*.svg','*.ttf','*.woff','*.woff2'])
-          .pipe(gulp.dest('./fonts'));
-});
+
 
 /**
  * start jekyll with watch

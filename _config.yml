@@ -9,17 +9,14 @@ highlighter:      rouge
 gems:
   - jekyll-paginate
 
-# Permalinks
-#permalink:              /blog/:categories/:title/
-# permalink:            blog/:categories/:year/:month/:day/:title/
 timezone: Asia/Shanghai
+
 # Setup
 title:            'Shang Wen Long'
 name:             'Shang Wen Long'
-#tagline:          ''
 description:      'Programmer'
 baseurl:              
-# blogurl:          /blog/
+
 # Assets
 images:         '/images'
 pdfs:           '/pdf'
@@ -43,15 +40,3 @@ version:          1.0.0
 github:
   repo:          'https://github.com/dxcqcv/dxcqcv.github.io' 
 
-# Collections
-#collections:
-#  - projects
-#  - talks
-
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "projects" # a collection in your site, in plural form
-#     values:
-#       layout: "default"
