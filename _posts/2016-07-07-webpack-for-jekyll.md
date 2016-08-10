@@ -18,12 +18,6 @@ tilte: webpack for jekyll
 
 1. install pug-loader and html-webpack-plugin 
 
-{% highlight ruby %}
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-{% endhighlight %}
-
 ```sh
 npm i pug-loader html-webpack-plugin -S
 ```

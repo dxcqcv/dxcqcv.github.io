@@ -75,10 +75,15 @@ module.exports = {
     devtool: "source-map",
 
     resolve: {
+    "alias": {
+            "Long": "long",
+            "ByteBuffer": "bytebuffer"
+        },
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js","styl"]
     },
   module: {
+  /*
     preLoaders: [
       {
         test: /\.js$/,
@@ -86,6 +91,7 @@ module.exports = {
         loader: 'jshint'
       }
     ],
+    */
     loaders: [
         {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
