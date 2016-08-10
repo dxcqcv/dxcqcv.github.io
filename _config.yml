@@ -1,12 +1,16 @@
 markdown: kramdown
 
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+    
 exclude:
   - package.json
   - node_modules
   - gulpfile.js
 
 # Dependencies
-highlighter:      rouge
+#highlighter: rouge
 
 gems:
   - jekyll-paginate

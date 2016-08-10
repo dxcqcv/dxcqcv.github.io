@@ -227,6 +227,26 @@ h6 {
     margin: 0.75em 0;
   }
 }
+pre > code {
+  display: block;
+  padding: 0 0.618rem 0.618rem 0.618rem;
+  margin: 0.382rem 0;
+  background-color: #ddd;
+  overflow-x: auto;
+  word-wrap: normal;
+  white-space: inherit;
+}
+pre > code:before {
+  content: attr(data-lang) " code";
+  display: block;
+  background-color: #58a598;
+  margin-top: 0;
+  margin-right: -0.618rem;
+  margin-bottom: 0.618rem;
+  margin-left: -0.618rem;
+  padding: 0.382rem 0.618rem;
+  color: #fff;
+}
 html,
 body {
   height: 100%;
@@ -289,7 +309,7 @@ session {
   float: left;
   overflow-y: auto;
   padding: 0.618rem 1.618rem;
-  background: #ddd;
+  background: #fff;
 }
 @media (max-width: 118.75rem) {
   session {
