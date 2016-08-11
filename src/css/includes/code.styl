@@ -1,21 +1,17 @@
+pre
+  &:before
+    content attr(data-lang) " code"
+    display block
+    background-color $highlight_darkened
+    padding unit($golden_minor, rem) unit($golden_major, rem)
+    color #fff
+  margin unit($golden_minor, rem) 0
+
 pre > code 
   display block
-  padding 0 unit($golden_major,rem) unit($golden_major,rem) unit($golden_major,rem)!important
-  margin unit($golden_minor, rem) 0
   background-color #ddd
   overflow-x auto
   word-wrap normal
   white-space inherit
-  &:before
-    content attr(data-lang) " code"
-    display @display
-    white-space nowrap
-    background-color $highlight_darkened
-    margin-top: 0 
-    margin-right: (- unit($golden_major,rem))
-    margin-bottom unit($golden_major,rem)
-    margin-left: - unit($golden_major,rem)
-    padding unit($golden_minor, rem) unit($golden_major, rem)
-    color #fff
 
   
