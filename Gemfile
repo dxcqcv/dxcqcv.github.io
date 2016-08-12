@@ -3,5 +3,4 @@ gem 'github-pages', group: :jekyll_plugins
 
 gem 'jekyll-paginate'
 gem 'jekyll-feed'
-gem 'rouge'
 gem 'github-linguist'

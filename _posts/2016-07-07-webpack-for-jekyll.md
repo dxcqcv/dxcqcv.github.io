@@ -3,28 +3,28 @@ layout: post
 tilte: webpack for jekyll
 ---
 
-# why
+## why
 - because you can build github page site with webpack, jade and stylus, so nice.
 
-# before start
+## before start
 
 1. you should know [webpack](https://webpack.github.io/)
 2. you should know [jade](http://jade-lang.com/)
 3. you should know [stylus](http://stylus-lang.com/)
 
-# workflow
+## workflow
 
-## webpack for jade (pug is new name for jade)
+#### webpack for jade (pug is new name for jade)
 
 1. install pug-loader and html-webpack-plugin 
 
-```sh
+``` sh
 npm i pug-loader html-webpack-plugin -S
 ```
 
-2. loade multiple pug then output html for jekyll
+2. loade multiple `pug` then output html for jekyll
 
-```javascript   
+``` javascript   
 // for creation of HTML
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 ...
@@ -66,11 +66,11 @@ let entryHtmlPlugins = Object.keys(getEntryList('pug')).map(function(entryName){
 ...
 ```
 
-## webpack for stylus
+#### webpack for stylus
 
 1. install stylus-loader and extract-text-webpack-plugin
 
-```
+``` sh
 npm i stylus-loader extract-text-webpack-plugin -S
 ```
     
@@ -118,7 +118,7 @@ plugins: [
 ]
 ```
 
-## webpack for font-awesome
+#### webpack for font-awesome
 
 1. install url-loader file-loader
 
@@ -150,7 +150,7 @@ loaders: [
 ...
 ```
 
-## local debug jekyll
+#### local debug jekyll
 
 1. install browser-sync, browser-sync-webpack-plugin, gulp 
 
@@ -204,7 +204,7 @@ gulp.task('webpack', function(){
 gulp.task('default', [ 'webpack','jekyll' ]);
 ```
 
-## bug
+#### bug
 for now, there is a bug with using pug to html, and not be fixed. pug [issue](https://github.com/pugjs/pug/issues/2443)
 
 I use pug to write jekyll make github page, so when I used yml front matter in pug, it always compiled a blank line at first line, so code like
