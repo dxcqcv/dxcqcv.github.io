@@ -1,6 +1,10 @@
 ---
 layout: post
 tilte: webpack for jekyll
+tags:
+- webpack
+- jekyll
+excerpt: build personal blog with webpack
 ---
 
 ## why

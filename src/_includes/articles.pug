@@ -8,8 +8,12 @@ session
     h3.post-subtitle
       |{{ post.subtitle | markdownify }}
     |{% endif %}
-    span.post-date
-      |{{ post.date | date_to_string }}
+    .info
+      span.post-date
+        |{{ post.date | date_to_string }}
+      |{% for tag in post.tags %}  
+      span.post-tags {{ tag }}
+      |{% endfor %}
     |{{ post.excerpt | markdownify }}
   |{% endfor %}
   

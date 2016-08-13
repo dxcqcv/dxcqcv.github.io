@@ -1,11 +1,15 @@
 ---
 layout: post
 tilte: Gemfile requires Y error
+tags:
+- jekyll
+- gulp
+excerpt: when you have two diff version of colorator or whatever, you will get error, here is a solution.
 ---
 
-I got error when I updated jekyll to 3.0
+I got error when I updated jekyll to 3.0 like: 
 
-> like You have already activated X, but your Gemfile requires Y 
+> You have already activated X, but your Gemfile requires Y 
 
 This is very annoying and fixed it for whole afternoon.
 
