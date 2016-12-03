@@ -1,10 +1,10 @@
 ---
 layout: post
-tilte: webpack for jekyll
+tilte: [BS] Reloading Browsers...
 tags:
-- webpack
-- jekyll
-excerpt: build personal blog with webpack
+- gulp
+- browser-sync
+excerpt: the browser-sync only work once, and always says `[BS] Reloading Browsers...`
 ---
 
 the browser-sync only work once, and always says `[BS] Reloading Browsers...`, do not know why
