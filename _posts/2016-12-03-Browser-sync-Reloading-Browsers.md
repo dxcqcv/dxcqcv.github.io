@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: [BS] Reloading Browsers
+tilte: Browser-sync Reloading Browsers
 tags:
 - gulp
 - browser-sync
