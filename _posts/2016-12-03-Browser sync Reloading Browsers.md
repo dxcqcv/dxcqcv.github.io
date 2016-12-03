@@ -4,7 +4,8 @@ tilte: [BS] Reloading Browsers...
 tags:
 - gulp
 - browser-sync
-excerpt: the browser-sync only work once, and always says `[BS] Reloading Browsers...`
+excerpt: the browser-sync only work once, and always says `[BS] Reloading Browsers...`.
+
 ---
 
 the browser-sync only work once, and always says `[BS] Reloading Browsers...`, do not know why
