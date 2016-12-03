@@ -68,6 +68,7 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
+    // publicPath: '{{site.baseurl}}/',
     publicPath: '{{site.baseurl}}/',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
@@ -159,6 +160,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin("commons", "js/commons.js"),
     /** extract css */
     new ExtractTextPlugin('css/[name].css'),
+    new ExtractTextPlugin('_site/css/[name].css'),
     new BrowserSyncPlugin({
       files: [siteRoot + '/**'],
       host: 'localhost',

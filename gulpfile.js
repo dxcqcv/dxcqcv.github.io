@@ -34,10 +34,6 @@ gulp.task('jekyll', () => {
   jekyll.stderr.on('data', jekyllLogger);
 });
 
-/**
- * default task that first webpack then jekyll
- */
-gulp.task('default', [ 'webpack','jekyll' ]);
 
 
 
@@ -65,3 +61,8 @@ gulp.task('webpack', function(){
             }));      
         });
 });
+
+/**
+ * default task that first webpack then jekyll
+ */
+gulp.task('default', gulp.series('webpack','jekyll') );
