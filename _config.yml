@@ -37,8 +37,11 @@ author:
   googleplus:     ''
   linkedin:       ''
 
+# Permalinks
+permalink: /blog/:categories/:title/
+
 paginate:         3
-paginate_path:    "/blog/page:num/"
+#paginate_path:    "/blog/page:num/"
 
 # Custom vars
 version:          1.0.0
