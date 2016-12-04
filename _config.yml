@@ -18,7 +18,8 @@ gems:
 timezone: Asia/Shanghai
 
 # Permalinks
-permalink:       /blog/:categories/:title/
+#permalink:       /blog/:categories/:title/
+permalink:  none       
 
 # Setup
 title:            'Shang Wen Long'
