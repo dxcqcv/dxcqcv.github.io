@@ -1,6 +1,6 @@
 .pagination
   |{% if paginator.previous_page %}
-  a.pagination-item.newer(href="{{ site.baseurl }}/{% if paginator.page > 2 %}page{{ paginator.previous_page }}{% endif %}")
+  a.pagination-item.newer(href!="{{ site.baseurl }}/{% if paginator.page > 2 %}page{{ paginator.previous_page }}{% endif %}")
     i.fa.fa-arrow-left
     |Newer
   |{% endif %}
