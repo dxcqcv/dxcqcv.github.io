@@ -17,6 +17,9 @@ gems:
 
 timezone: Asia/Shanghai
 
+# Permalinks
+permalink: /blog/:categories/:title/
+
 # Setup
 title:            'Shang Wen Long'
 name:             'Shang Wen Long'
@@ -37,8 +40,6 @@ author:
   googleplus:     ''
   linkedin:       ''
 
-# Permalinks
-permalink: /blog/:categories/:title/
 
 paginate:         3
 #paginate_path:    "/blog/page:num/"
