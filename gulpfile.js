@@ -95,7 +95,7 @@ gulp.task('webpack', function(done){
  * watch src folder change then run webpack
  * watch dist folder change then reload browser
  */
-var srcWatcher = gulp.watch('src/**/*',gulp.series('webpack','trim','jekyll',function() {
+var srcWatcher = gulp.watch('./**/src/**/*',gulp.series('webpack','trim','jekyll',function() {
   browserSync.reload();
 }));
 
