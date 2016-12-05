@@ -386,6 +386,7 @@ a.sidebar-nav-item {
 }
 a.sidebar-nav-item:hover {
   color: #7fcbbe;
+  color: #00f;
 }
 .sidebar-about > h1 {
   color: #fff;

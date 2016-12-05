@@ -24,7 +24,7 @@ permalink:       /blog/:categories/:title/
 title:            'Shang Wen Long'
 name:             'Shang Wen Long'
 description:      'Programmer'
-baseurl:              
+baseurl:          
 
 # Assets
 images:         '/images'
@@ -32,7 +32,7 @@ pdfs:           '/pdf'
 
 author:
   name:           'Shang Wen Long'
-  url:            'https://dxcqcv.github.io'
+  url:            dxcqcv.github.io
   email:          'dxcqcv@gmail.com'
   github:         'https://github.com/dxcqcv'
   facebook:       'https://www.facebook.com/shang.roy'

@@ -39,7 +39,9 @@
     "url-loader": "^0.5.7"
   },
   "dependencies": {
-    "highlight.js": "^9.5.0"
+    "gulp-trim": "^1.0.2",
+    "highlight.js": "^9.5.0",
+    "trim-lines-loader": "^0.1.0"
   },
   "bugs": {
     "url": "https://github.com/dxcqcv/shangwenlong.github.io/issues"

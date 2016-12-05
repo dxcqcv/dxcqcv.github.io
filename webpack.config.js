@@ -13,8 +13,6 @@ const autoprefixer = require('autoprefixer');
  * refence
  */
 const siteRoot = '_site';
-// for browserSync
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // for clean folders before building
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 // for creation of HTML
@@ -148,7 +146,6 @@ module.exports = {
   postcss: () => {
     return [autoprefixer];
   },
-  watch: true,
   plugins: debug ? [
     /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
@@ -161,12 +158,6 @@ module.exports = {
     /** extract css */
     new ExtractTextPlugin('css/[name].css'),
     new ExtractTextPlugin('_site/css/[name].css'),
-    new BrowserSyncPlugin({
-      files: [siteRoot + '/**'],
-      host: 'localhost',
-      port: 3000,
-      server: { baseDir: [siteRoot] }
-    },{reload:true})  
   ].concat(entryHtmlPlugins):[
         /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
