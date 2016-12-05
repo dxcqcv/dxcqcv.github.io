@@ -250,6 +250,9 @@ body {
   height: 100%;
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  color: #515151;
+  line-height: 1.5;
 }
 @media (min-width: 81.25rem) {
   html,
@@ -373,11 +376,12 @@ a.name {
 }
 .lead {
   color: #b2e0d8;
+  font-size: 1.5625rem;
 }
 a.sidebar-nav-item {
   color: #fff;
   display: block;
-  padding: 1em 0;
+  padding: 1em 0 0;
 }
 @media (max-width: 7.1875rem) {
   a.sidebar-nav-item {
@@ -386,9 +390,9 @@ a.sidebar-nav-item {
 }
 a.sidebar-nav-item:hover {
   color: #7fcbbe;
-  color: #00f;
 }
 .sidebar-about > h1 {
+  font-size: 4.5em;
   color: #fff;
 }
 @media (max-width: 7.1875rem) {
@@ -432,6 +436,12 @@ nav {
 }
 .info {
   padding-bottom: 1rem;
+}
+h1.post-title {
+  font-size: 2.5rem;
+}
+h1.post-title:hover {
+  text-decoration: underline;
 }
 .post-tags {
   color: #fff;

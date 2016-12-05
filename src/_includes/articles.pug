@@ -1,7 +1,7 @@
 div
   |{% for post in paginator.posts %}
   article
-    h1 
+    h1.post-title 
       a(href="{{ site.baseurl }}{{ post.url }}")
         |{{ post.title | markdownify }}
     |{% if post.subtitle %}
