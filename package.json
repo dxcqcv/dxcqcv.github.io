@@ -13,7 +13,6 @@
   "author": "shang wen long",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "^1.1.0",
     "bundled-gem-spawn": "^1.0.1",
@@ -30,7 +29,11 @@
     "jshint": "^2.9.2",
     "jshint-loader": "^0.8.3",
     "path": "^0.12.7",
+    "postcss-alias": "^1.0.0",
     "postcss-loader": "^0.9.1",
+    "postcss-opacity": "^4.0.0",
+    "postcss-vmin": "^2.0.0",
+    "postcss-will-change": "^1.1.0",
     "pug-html-loader": "^1.0.8",
     "pug-loader": "^1.0.2",
     "style-loader": "^0.13.1",
@@ -41,6 +44,7 @@
   "dependencies": {
     "gulp-trim": "^1.0.2",
     "highlight.js": "^9.5.0",
+    "postcss-cssnext": "^2.9.0",
     "trim-lines-loader": "^0.1.0"
   },
   "bugs": {

@@ -20,4 +20,4 @@ Boo~~
 
 404 pages~~
 
-so the solution is change the github repo name, over. thx github.
+so the solution is to change the github repo name, over. thx github.

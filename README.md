@@ -7,6 +7,7 @@
 # build
 - `gulp`
 - remove top blank line of **index.html** and others html files in the _layouts folder    
+- `NODE_ENV=production gulp` for production
 
 # TODO
 * make a pugjs plugin to fix pug2jade bug, [issues](https://github.com/pugjs/pug/issues/2443)
