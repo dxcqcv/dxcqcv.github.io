@@ -12,4 +12,5 @@
 # TODO
 * make a pugjs plugin to fix pug2jade bug, [issues](https://github.com/pugjs/pug/issues/2443)
 * make it support jenkins
+* support line num in code
 
