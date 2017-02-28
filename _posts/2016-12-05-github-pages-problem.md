@@ -10,9 +10,9 @@ excerpt: The problem is if your permalink has the same path with github repo, yo
 
 I have a permalink like
 
-```javascript
-permalink:       /blog/:categories/:title/
-```
+{% highlight javascript linenos %}
+  permalink:       /blog/:categories/:title/
+{% endhighlight %}
 
 and I have a github repo name `blog`
 

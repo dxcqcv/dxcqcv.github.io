@@ -9,10 +9,11 @@ excerpt: The problem is gulp-4 watch only work once after first run
 
 Someone say this problem cause OS, specify Linux-like OS ubuntu etc, and add `**` to path can fix it, like
 
-```javascript
-gulp.task('watch', function () {
-    gulp.watch( './**/test.js', gulp.series('es6') );
-    console.log('Running watch...');
-}); 
-```
+{% highlight javascript linenos %}
+  gulp.task('watch', function () {
+      gulp.watch( './**/test.js', gulp.series('es6') );
+      console.log('Running watch...');
+  }); 
+{% endhighlight %}
+
 But the solution does not work on me, do not know why, sad~

@@ -227,11 +227,11 @@ h6 {
     margin: 0.75em 0;
   }
 }
-pre {
+.highlight > pre {
   margin: 6.112px 0;
   margin: 0.382rem 0;
 }
-pre:before {
+.highlight > pre:before {
   content: attr(data-lang) " code";
   display: block;
   background-color: #58a598;
@@ -240,7 +240,7 @@ pre:before {
   padding: 0.382rem 0.618rem;
   color: #fff;
 }
-pre > code {
+.highlight > pre > code {
   display: block;
   background-color: #ddd;
   overflow-x: auto;

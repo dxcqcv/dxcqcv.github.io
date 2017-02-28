@@ -9,26 +9,26 @@ excerpt: when you use arrow function to custom methods in mongoose you will get 
 
 This bug is about this reference, so let me show code to you
 
-```javascript
-var userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    unique: true,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  hash: String,
-  salt: String
-});
+{% highlight javascript linenos %}
+  var userSchema = new mongoose.Schema({
+    email: {
+      type: String,
+      unique: true,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    hash: String,
+    salt: String
+  });
 
-userSchema.methods.setPassword = (password) => {
-  this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pbkdf2Sync(password, this.salt, 1000,64, 'sha512').toString('hex');
-};
-```
+  userSchema.methods.setPassword = (password) => {
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000,64, 'sha512').toString('hex');
+  };
+{% endhighlight %}
 
 In this case, `this` will refer to `setPassword` method, but userSchema, so you just have two ways can fix it
 

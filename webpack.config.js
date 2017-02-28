@@ -16,7 +16,7 @@ const alias = require('postcss-alias');
 /**
  * refence
  */
-const siteRoot = '_site';
+//const siteRoot = '_site';
 // for clean folders before building
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 // for creation of HTML
@@ -35,9 +35,9 @@ const PATHS = {
 // for get multiple entry list
 function getEntryList (type) {
   let glob = require('glob');
-  let fileList = [];
+  //let fileList = [];
 
-  let entryList = glob.sync(PATHS.app+'/**/*.'+type).reduce(function(o,v,i) {
+  let entryList = glob.sync(PATHS.app+'/**/*.'+type).reduce(function(o,v) {
     let regex = /([^\/]+)(?=\.\w+$)/;
     let index = v.match(regex)[0];
     o[index] = v;
@@ -56,14 +56,14 @@ let entryHtmlPlugins = Object.keys(getEntryList('pug')).map(function(entryName){
   // filter chunks config
   let chunkList = [];
   switch(entryName){
-    case 'default':
-      chunkList.push('commons','index');
+  case 'default':
+    chunkList.push('commons','index');
   }
   return new HtmlWebpackPlugin({
     filename: filenamePath,
     chunks: chunkList,
     template: templatePath
-  })
+  });
 });
 
 module.exports = {
@@ -71,32 +71,33 @@ module.exports = {
   output: {
     path: PATHS.bin,
     // publicPath: '{{site.baseurl}}/',
-    publicPath: '{{site.baseurl}}/',
+   // use / to show awesome css icon
+    publicPath: '/',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
-      // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
+  // Enable sourcemaps for debugging webpack's output.
+  devtool: 'source-map',
 
-    resolve: {
-    "alias": {
-            "Long": "long",
-            "ByteBuffer": "bytebuffer"
-        },
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js","styl"]
+  resolve: {
+    'alias': {
+      'Long': 'long',
+      'ByteBuffer': 'bytebuffer'
     },
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js','styl']
+  },
   module: {
-  /*
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'jshint'
-      }
-    ],
-    */
+    /*
+       preLoaders: [
+       {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       loader: 'jshint'
+       }
+       ],
+       */
     loaders: [
-        {
+      {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         loader: debug? "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
       }, {
@@ -154,7 +155,7 @@ module.exports = {
       vmin,
       cssnext({browsers:'last 2 versions,> 1%,ie >= 8'}),
       opacity
-      ];
+    ];
   },
   plugins: debug ? [
     /** clean folders */
@@ -169,7 +170,7 @@ module.exports = {
     new ExtractTextPlugin('css/[name].css'),
     new ExtractTextPlugin('_site/css/[name].css'),
   ].concat(entryHtmlPlugins):[
-        /** clean folders */
+    /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
       root: __dirname,
       verbose: true,
@@ -182,7 +183,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ].concat(entryHtmlPlugins),
-  jshint: {
-    esversion: 6
-  }
+    jshint: {
+      esversion: 6
+    }
 };

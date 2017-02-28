@@ -22,7 +22,6 @@ kramdown:
         line_numbers: true
         start_line: 1
 
-kramdown.syntax_highlighter_opts.block.line_numbers = true
 
     
 exclude:

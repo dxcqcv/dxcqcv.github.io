@@ -17,13 +17,13 @@ This is very annoying and fixed it for whole afternoon.
 1. test `bundle exec jekyll` instead of just `jekyll` 
 2. then change gulpfile 
 
-``` javascript
-const child = require('child_process');
-gulp.task('jekyll', () => {
-  const jekyll = child.spawn('bundle', ['exec','jekyll','build',
-    '--watch',
-    '--incremental',
-    '--drafts'
-  ]);
-});
-```
+{% highlight javascript linenos %}
+  const child = require('child_process');
+  gulp.task('jekyll', () => {
+    const jekyll = child.spawn('bundle', ['exec','jekyll','build',
+      '--watch',
+      '--incremental',
+      '--drafts'
+    ]);
+  });
+{% endhighlight %}

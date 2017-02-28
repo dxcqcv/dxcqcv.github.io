@@ -11,15 +11,15 @@ If you wanna pass data through `pug-loader` in webpack, you'll get error like so
 
 so you only can use `gulp-pug` to pass data to pug, like
 
-```javascript
-/**
- * pug to html
- */
- gulp.task('html',function(){
-   return gulp.src('./app/src/html/index.pug')
-   .pipe(pug({
-     locals: locals
-   }))
-   .pipe(gulp.dest('./app/dist/html'))
- });
-```
+{% highlight javascript linenos %}
+  /**
+   * pug to html
+   */
+   gulp.task('html',function(){
+     return gulp.src('./app/src/html/index.pug')
+     .pipe(pug({
+       locals: locals
+     }))
+     .pipe(gulp.dest('./app/dist/html'))
+   });
+{% endhighlight %}
