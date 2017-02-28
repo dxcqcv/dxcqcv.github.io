@@ -455,8 +455,8 @@ h1.post-title:hover {
 .post-tags {
   color: #fff;
   background: #58a598;
-  padding: 6.112px;
-  padding: 0.382rem;
+  padding: 6.112px 9.888px;
+  padding: 0.382rem 0.618rem;
   border-radius: 0.618rem;
 }
 .post-date {

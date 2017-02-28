@@ -7,12 +7,7 @@ const gTrim = require('gulp-trim');
 const htmlv = require('gulp-html-validator');
 const w3cjs = require('gulp-w3cjs');
 const child = require('child_process');
-const srcFiles = 'src/**';
 const siteRoot = '_site';
-const jekyllCommand   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
-var messages = {
-    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
 
 /**
  * browserSync 
@@ -25,7 +20,7 @@ gulp.task('browser-sync', () => {
     server: {
       baseDir:[siteRoot]
     }
-  })
+  });
 });
 
 /**
@@ -41,7 +36,9 @@ gulp.task('trim', (done) => {
   done();
 });
 
+
 /**
+  Error: spawn bundle ENOENT
  * start jekyll with watch
  */
 gulp.task('jekyll', (done) => {
@@ -83,19 +80,19 @@ gulp.task('hc2', function(){
 /*************** webpack ************************/
 gulp.task('webpack', function(done){
   webpack(webpackConfig, function(err,stats){
-            if(err) throw new gutil.PluginError('webpack', err);
-            gutil.log('webpack', stats.toString({
-              colors: true
-            }));      
-        done(); // call done when cb done
-        });
+    if(err) throw new gutil.PluginError('webpack', err);
+    gutil.log('webpack', stats.toString({
+      colors: true
+    }));      
+    done(); // call done when cb done
+  });
 });
 
 /**
  * watch src folder change then run webpack
  * watch dist folder change then reload browser
  */
-var srcWatcher = gulp.watch('./**/src/**/*',gulp.series('webpack','trim','jekyll',function() {
+gulp.watch('./**/src/**/*',gulp.series('webpack','trim','jekyll',function() {
   browserSync.reload();
 }));
 
