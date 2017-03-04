@@ -83,35 +83,59 @@ module.exports = {
       'Long': 'long',
       'ByteBuffer': 'bytebuffer'
     },
+    enforceModuleExtension: true,
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js','styl']
+    extensions: [ '.webpack.js', '.web.js', '.ts', '.tsx', 'styl']
   },
   module: {
-    /*
-       preLoaders: [
-       {
-       test: /\.js$/,
-       exclude: /node_modules/,
-       loader: 'jshint'
-       }
-       ],
-       */
-    loaders: [
+    rules: [
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: debug? "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
+        use:[{ loader: 'url-loader',
+               options: {
+                  limit:'10000',
+                  mimetype:'application/font-woff',
+                  name:'./fonts/[name]-[hash:8].[ext]'
+               }
+            } ]
       }, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: debug? "url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]" :"url?limit=10000&mimetype=application/font-woff&name=./fonts/[name]-[hash:8].[ext]"
+        use:[{ 
+          loader: 'url-loader',
+          options: {
+            limit:'10000',
+            mimetype:'application/font-woff',
+            name:'./fonts/[name]-[hash:8].[ext]'
+          }
+        } ]
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: debug? "url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name]-[hash:8].[ext]"
+        use:[{ 
+          loader: 'url-loader',
+          options: {
+            limit:'10000',
+            mimetype:'application/octet-stream',
+            name:'./fonts/[name]-[hash:8].[ext]'
+          }
+        } ]
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: debug? "file?&name=./fonts/[name].[ext]":"file?&name=./fonts/[name]-[hash:8].[ext]"
+        use:[{ 
+          loader: 'file-loader',
+          options: {
+            name:'./fonts/[name]-[hash:8].[ext]'
+          }
+        } ]
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: debug? "url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name].[ext]":"url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name]-[hash:8].[ext]"
+        use:[{ 
+          loader: 'url-loader',
+          options: {
+            limit:'10000',
+            mimetype:'image/svg+xml',
+            name:'./fonts/[name]-[hash:8].[ext]'
+          }
+        } ]
       },
       /********* css to js */
       // {
@@ -119,44 +143,56 @@ module.exports = {
       //   exclude: ['/node_modules/'],
       //   loader: ExtractTextPlugin.extract('style',['css','postcss'],{publicPath:'.'})
       // },
-      /********* pug to js */
-      {
-        test:/\.pug$/,
-        exclude: ['/node_modules/','src/layouts/post.pug'],
-        loader: 'pug-html-loader',
-        query: {
-          pretty: true
-        }
+       {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use:[{ 
+          loader: 'file-loader',
+          options: {
+            name:'./fonts/[name]-[hash:8].[ext]'
+          }
+        } ]
       },
       /********* ts to js */
       {
         test:/\.ts$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        use: [{loader: 'ts-loader' }] 
       },
       /********* stylus to css*/
       {
         test: /\.(styl|css)$/,
         exclude: ['/node_modules/','/src/css/includes/'],
-        loader: ExtractTextPlugin.extract('style',['css','postcss','stylus'])
+        use:ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use:['css-loader','postcss-loader','stylus-loader']
+        })  
+      },
+      /********* pug to js */
+      {
+        test:/\.pug$/,
+        exclude: ['/node_modules/','src/layouts/post.pug'],
+        use: {
+          loader:'pug-loader',
+          options: {
+            pretty: true
+          }
+        } ,
       },
       /********* url loader*/
       {
         test: /\.(png|jpg)$/,
         exclude: /node_modules/,
-        loader: 'url-loader?limit=8192&name=[name]-[hash:8].[ext]'
+        use:[{ 
+          loader: 'url-loader',
+          options: {
+            limit: '8192',
+            name:'[name]-[hash:8].[ext]'
+          }
+        } ]
       }
     ]
   },
-  postcss: () => {
-    return [
-      alias,
-      will_change,
-      vmin,
-      cssnext({browsers:'last 2 versions,> 1%,ie >= 8'}),
-      opacity
-    ];
-  },
+  // loader-utils/issues/56
   plugins: debug ? [
     /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
@@ -164,12 +200,31 @@ module.exports = {
       verbose: true,
       dry: false 
     }),
+     new webpack.LoaderOptionsPlugin({
+       debug: true,
+       options: {
+         resolve:{
+           extensions: ['.ts', '.tsx', '.js']
+         },
+        postcss: [
+          alias,
+          will_change,
+          vmin,
+          cssnext({browsers:'last 2 versions,> 1%,ie >= 8'}),
+          opacity
+        ], 
+       }
+     }),
     /** commonsPlugin */
-    new webpack.optimize.CommonsChunkPlugin("commons", "js/commons.js"),
+    new webpack.optimize.CommonsChunkPlugin({name:'commons',filename:'js/commons.js'} ),
     /** extract css */
-    new ExtractTextPlugin('css/[name].css'),
-    new ExtractTextPlugin('_site/css/[name].css'),
-  ].concat(entryHtmlPlugins):[
+    new ExtractTextPlugin({
+      filename:  'css/[name].css'
+    }),
+    new ExtractTextPlugin({
+      filename:'_site/css/[name].css'
+    }),
+  ].concat(entryHtmlPlugins ):[
     /** clean folders */
     new CleanWebpackPlugin(['css/','js/','_site/js/','_site/css/'],{
       root: __dirname,
@@ -177,13 +232,10 @@ module.exports = {
       dry: false 
     }),
     /** commonsPlugin */
-    new webpack.optimize.CommonsChunkPlugin("commons", "js/commons-[hash:8].js"),
+    new webpack.optimize.CommonsChunkPlugin({name:'commons', filename:'js/commons-[hash:8].js'}),
     /** extract css */
-    new ExtractTextPlugin('css/[name]-[hash:8].css'),
-    new webpack.optimize.DedupePlugin(),
+    new ExtractTextPlugin({
+      filename:'css/[name]-[hash:8].css'
+    }),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ].concat(entryHtmlPlugins),
-    jshint: {
-      esversion: 6
-    }
-};
+  ].concat(entryHtmlPlugins )};

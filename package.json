@@ -4,6 +4,7 @@
   "description": "build shang wen long's blog",
   "main": "gulpfile.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,9 +19,10 @@
     "bundled-gem-spawn": "^1.0.1",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "~2.0.0",
     "file-loader": "^0.9.0",
     "font-awesome": "^4.6.3",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-html-validator": "0.0.5",
     "gulp-pug": "^3.0.3",
     "gulp-util": "^3.0.7",
@@ -34,12 +36,15 @@
     "postcss-opacity": "^4.0.0",
     "postcss-vmin": "^2.0.0",
     "postcss-will-change": "^1.1.0",
+    "pug": "~2.0.0-beta3",
     "pug-html-loader": "^1.0.8",
-    "pug-loader": "^1.0.2",
+    "pug-loader": "~2.3.0",
     "style-loader": "^0.13.1",
+    "stylus": "~0.54.5",
     "stylus-loader": "^2.1.1",
     "ts-loader": "^0.8.2",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack": "~2.2.1"
   },
   "dependencies": {
     "gulp-trim": "^1.0.2",

@@ -5,18 +5,18 @@ aside
     p.lead Front-End developer
   nav
     each val, index in {'Blog':'/','About':'{{ site.baseurl }}/about/', 'Resume':'https://dxcqcv.github.io/resume/html/index.html', 'Projects':'/'}
-      - if (index == 'Resume') 
-      a.sidebar-nav-item(href=val,target="_blank")= index
-      - else 
-      a.sidebar-nav-item(href=val)= index
+      if (index == 'Resume') 
+        a.sidebar-nav-item(href=val,target="_blank")= index
+      else 
+        a.sidebar-nav-item(href=val)= index
   ul.list-inline
     each val, index in{envelope:'mailto:dxcqcv@gmail.com',github:'https://github.com/dxcqcv',twitter:'https://twitter.com/dxcqcv',linkedin:'http://www.linkedin.com/in/wenlong-shang-603a412b?trk=hp-identity-name',wechat:'/images/shangwenlong-wechat.png'}
       li
-        - if (index == 'envelope')
-        a(href=val)
-          i(class="fa fa-"+index+''  aria-hidden="true")
-        - else
-        a(href=val target="_blank")
-          i(class="fa fa-"+index+''  aria-hidden="true")
+        if (index == 'envelope')
+          a(href=val)
+            i(class="fa fa-"+index+''  aria-hidden="true")
+        else
+          a(href=val target="_blank")
+            i(class="fa fa-"+index+''  aria-hidden="true")
   small#credits &copy; {{ site.time | date: '%Y' }}.  
     a(href="{{ site.baseurl }}/credits") Credits.
