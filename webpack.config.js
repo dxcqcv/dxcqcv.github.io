@@ -70,9 +70,9 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
-    // publicPath: '{{site.baseurl}}/',
+     publicPath: '{{site.baseurl}}',
    // use / to show awesome css icon
-    publicPath: '/',
+    //publicPath: './',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
   // Enable sourcemaps for debugging webpack's output.
@@ -92,12 +92,13 @@ module.exports = {
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         use:[{ loader: 'url-loader',
-               options: {
-                  limit:'10000',
-                  mimetype:'application/font-woff',
-                  name:'./fonts/[name]-[hash:8].[ext]'
-               }
-            } ]
+          options: {
+            limit:'10000',
+            mimetype:'application/font-woff',
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
+          }
+        } ]
       }, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
         use:[{ 
@@ -105,7 +106,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'application/font-woff',
-            name:'./fonts/[name]-[hash:8].[ext]'
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -115,7 +117,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'application/octet-stream',
-            name:'./fonts/[name]-[hash:8].[ext]'
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -123,7 +126,8 @@ module.exports = {
         use:[{ 
           loader: 'file-loader',
           options: {
-            name:'./fonts/[name]-[hash:8].[ext]'
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -133,7 +137,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'image/svg+xml',
-            name:'./fonts/[name]-[hash:8].[ext]'
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
           }
         } ]
       },
@@ -148,7 +153,8 @@ module.exports = {
         use:[{ 
           loader: 'file-loader',
           options: {
-            name:'./fonts/[name]-[hash:8].[ext]'
+            //name:'./fonts/[name].[ext]?[hash:8]'
+            name:'./fonts/[name].[ext]?[hash:8]'
           }
         } ]
       },
@@ -186,7 +192,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: '8192',
-            name:'[name]-[hash:8].[ext]'
+            name:'[name].[ext]?[hash:8]'
           }
         } ]
       }
