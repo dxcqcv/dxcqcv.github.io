@@ -72,7 +72,7 @@ module.exports = {
     path: PATHS.bin,
      //publicPath: '{{site.baseurl}}',
    // use / to show awesome css icon
-    publicPath: '../',
+    publicPath: '/',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
   // Enable sourcemaps for debugging webpack's output.
@@ -148,16 +148,16 @@ module.exports = {
       //   exclude: ['/node_modules/'],
       //   loader: ExtractTextPlugin.extract('style',['css','postcss'],{publicPath:'.'})
       // },
-       {
-        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use:[{ 
-          loader: 'file-loader',
-          options: {
+       //{
+        //test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        //use:[{ 
+          //loader: 'file-loader',
+          //options: {
+            ////name:'fonts/[name].[ext]?[hash:8]'
             //name:'fonts/[name].[ext]?[hash:8]'
-            name:'fonts/[name].[ext]?[hash:8]'
-          }
-        } ]
-      },
+          //}
+        //} ]
+      //},
       /********* ts to js */
       {
         test:/\.ts$/,

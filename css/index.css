@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(../fonts/fontawesome-webfont.eot?40b0397c);
-  src: url(../fonts/fontawesome-webfont.eot?40b0397c?#iefix&v=4.6.3) format('embedded-opentype'), url(data:application/font-woff;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJmb250cy9mb250YXdlc29tZS13ZWJmb250LndvZmYyP2U2Y2Y3YzZlIjs=) format('woff2'), url(data:application/font-woff;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJmb250cy9mb250YXdlc29tZS13ZWJmb250LndvZmY/YzhkZGYxZTUiOw==) format('woff'), url(data:application/octet-stream;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJmb250cy9mb250YXdlc29tZS13ZWJmb250LnR0Zj8xZGMzNWQyNSI7) format('truetype'), url(data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJmb250cy9mb250YXdlc29tZS13ZWJmb250LnN2Zz9kN2M2MzkwOCI7#fontawesomeregular) format('svg');
+  src: url(./fonts/fontawesome-webfont.eot?25a32416);
+  src: url(./fonts/fontawesome-webfont.eot?25a32416?#iefix&v=4.6.3) format('embedded-opentype'), url(./fonts/fontawesome-webfont.woff2?e6cf7c6e) format('woff2'), url(./fonts/fontawesome-webfont.woff?c8ddf1e5) format('woff'), url(./fonts/fontawesome-webfont.ttf?1dc35d25) format('truetype'), url(./fonts/fontawesome-webfont.svg?d7c63908#fontawesomeregular) format('svg');
   font-weight: normal;
   font-style: normal;
 }
