@@ -70,9 +70,9 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
-     publicPath: '{{site.baseurl}}',
+     //publicPath: '{{site.baseurl}}',
    // use / to show awesome css icon
-    //publicPath: './',
+    publicPath: '../',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
   // Enable sourcemaps for debugging webpack's output.
@@ -95,8 +95,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'application/font-woff',
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -106,8 +106,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'application/font-woff',
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -117,8 +117,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'application/octet-stream',
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -126,8 +126,8 @@ module.exports = {
         use:[{ 
           loader: 'file-loader',
           options: {
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       }, {
@@ -137,8 +137,8 @@ module.exports = {
           options: {
             limit:'10000',
             mimetype:'image/svg+xml',
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       },
@@ -153,8 +153,8 @@ module.exports = {
         use:[{ 
           loader: 'file-loader',
           options: {
-            //name:'./fonts/[name].[ext]?[hash:8]'
-            name:'./fonts/[name].[ext]?[hash:8]'
+            //name:'fonts/[name].[ext]?[hash:8]'
+            name:'fonts/[name].[ext]?[hash:8]'
           }
         } ]
       },
