@@ -70,9 +70,9 @@ module.exports = {
   entry: getEntryList('ts'),
   output: {
     path: PATHS.bin,
-     publicPath: '{{site.baseurl}}',
+     //publicPath: '{{site.baseurl}}',
    // use / to show awesome css icon
-    //publicPath: '/',
+    publicPath: '/',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
   // Enable sourcemaps for debugging webpack's output.
