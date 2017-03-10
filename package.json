@@ -30,6 +30,7 @@
     "html-webpack-plugin": "^2.22.0",
     "jshint": "^2.9.2",
     "jshint-loader": "^0.8.3",
+    "node-sass": "~4.5.0",
     "path": "^0.12.7",
     "postcss-alias": "^1.0.0",
     "postcss-loader": "^0.9.1",
@@ -39,6 +40,7 @@
     "pug": "~2.0.0-beta3",
     "pug-html-loader": "^1.0.8",
     "pug-loader": "~2.3.0",
+    "sass-loader": "~6.0.3",
     "style-loader": "^0.13.1",
     "stylus": "~0.54.5",
     "stylus-loader": "^2.1.1",
@@ -47,6 +49,7 @@
     "webpack": "~2.2.1"
   },
   "dependencies": {
+    "font-awesome": "~4.7.0",
     "gulp-trim": "^1.0.2",
     "highlight.js": "^9.5.0",
     "postcss-cssnext": "^2.9.0",

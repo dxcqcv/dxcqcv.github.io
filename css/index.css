@@ -1,15 +1,23 @@
 /*
- *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url({{site.baseurl}}fonts/fontawesome-webfont.eot?25a32416);
-  src: url({{site.baseurl}}fonts/fontawesome-webfont.eot?25a32416?#iefix&v=4.6.3) format('embedded-opentype'), url({{site.baseurl}}fonts/fontawesome-webfont.woff2?e6cf7c6e) format('woff2'), url({{site.baseurl}}fonts/fontawesome-webfont.woff?c8ddf1e5) format('woff'), url({{site.baseurl}}fonts/fontawesome-webfont.ttf?1dc35d25) format('truetype'), url({{site.baseurl}}fonts/fontawesome-webfont.svg?d7c63908#fontawesomeregular) format('svg');
+  src: url(../fonts/fontawesome-webfont.eot?25a32416);
+  src: url(../fonts/fontawesome-webfont.eot?25a32416?#iefix&v=4.7.0) format('embedded-opentype'), url(../fonts/fontawesome-webfont.woff2?e6cf7c6e) format('woff2'), url(../fonts/fontawesome-webfont.woff?c8ddf1e5) format('woff'), url(../fonts/fontawesome-webfont.ttf?1dc35d25) format('truetype'), url(../fonts/fontawesome-webfont.svg?d7c63908#fontawesomeregular) format('svg');
   font-weight: normal;
   font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
@@ -1815,6 +1823,7 @@
   content: "\F23E";
 }
 .fa-battery-4:before,
+.fa-battery:before,
 .fa-battery-full:before {
   content: "\F240";
 }
@@ -2160,6 +2169,143 @@
 .fa-fa:before,
 .fa-font-awesome:before {
   content: "\F2B4";
+}
+.fa-handshake-o:before {
+  content: "\F2B5";
+}
+.fa-envelope-open:before {
+  content: "\F2B6";
+}
+.fa-envelope-open-o:before {
+  content: "\F2B7";
+}
+.fa-linode:before {
+  content: "\F2B8";
+}
+.fa-address-book:before {
+  content: "\F2B9";
+}
+.fa-address-book-o:before {
+  content: "\F2BA";
+}
+.fa-vcard:before,
+.fa-address-card:before {
+  content: "\F2BB";
+}
+.fa-vcard-o:before,
+.fa-address-card-o:before {
+  content: "\F2BC";
+}
+.fa-user-circle:before {
+  content: "\F2BD";
+}
+.fa-user-circle-o:before {
+  content: "\F2BE";
+}
+.fa-user-o:before {
+  content: "\F2C0";
+}
+.fa-id-badge:before {
+  content: "\F2C1";
+}
+.fa-drivers-license:before,
+.fa-id-card:before {
+  content: "\F2C2";
+}
+.fa-drivers-license-o:before,
+.fa-id-card-o:before {
+  content: "\F2C3";
+}
+.fa-quora:before {
+  content: "\F2C4";
+}
+.fa-free-code-camp:before {
+  content: "\F2C5";
+}
+.fa-telegram:before {
+  content: "\F2C6";
+}
+.fa-thermometer-4:before,
+.fa-thermometer:before,
+.fa-thermometer-full:before {
+  content: "\F2C7";
+}
+.fa-thermometer-3:before,
+.fa-thermometer-three-quarters:before {
+  content: "\F2C8";
+}
+.fa-thermometer-2:before,
+.fa-thermometer-half:before {
+  content: "\F2C9";
+}
+.fa-thermometer-1:before,
+.fa-thermometer-quarter:before {
+  content: "\F2CA";
+}
+.fa-thermometer-0:before,
+.fa-thermometer-empty:before {
+  content: "\F2CB";
+}
+.fa-shower:before {
+  content: "\F2CC";
+}
+.fa-bathtub:before,
+.fa-s15:before,
+.fa-bath:before {
+  content: "\F2CD";
+}
+.fa-podcast:before {
+  content: "\F2CE";
+}
+.fa-window-maximize:before {
+  content: "\F2D0";
+}
+.fa-window-minimize:before {
+  content: "\F2D1";
+}
+.fa-window-restore:before {
+  content: "\F2D2";
+}
+.fa-times-rectangle:before,
+.fa-window-close:before {
+  content: "\F2D3";
+}
+.fa-times-rectangle-o:before,
+.fa-window-close-o:before {
+  content: "\F2D4";
+}
+.fa-bandcamp:before {
+  content: "\F2D5";
+}
+.fa-grav:before {
+  content: "\F2D6";
+}
+.fa-etsy:before {
+  content: "\F2D7";
+}
+.fa-imdb:before {
+  content: "\F2D8";
+}
+.fa-ravelry:before {
+  content: "\F2D9";
+}
+.fa-eercast:before {
+  content: "\F2DA";
+}
+.fa-microchip:before {
+  content: "\F2DB";
+}
+.fa-snowflake-o:before {
+  content: "\F2DC";
+}
+.fa-superpowers:before {
+  content: "\F2DD";
+}
+.fa-wpexplorer:before {
+  content: "\F2DE";
+}
+.fa-meetup:before {
+  content: "\F2E0";
 }
 .sr-only {
   position: absolute;
