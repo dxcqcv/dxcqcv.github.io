@@ -70,7 +70,7 @@ module.exports = {
   output: {
     path: PATHS.bin,
    // use / to show awesome css icon
-    publicPath: './',
+    publicPath: '/',
     filename: debug ? 'js/[name].js' : 'js/[name]-[hash:8].js'
   },
   // Enable sourcemaps for debugging webpack's output.
