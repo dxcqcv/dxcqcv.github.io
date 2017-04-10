@@ -6,58 +6,52 @@ tags:
 excerpt: Some collection of Front-End interview answers 
 ---
 
-##Question: Make a method to find special item in object.
+## Question: Make a method to find special item in object.
 
-##Answer:
+## Answer:
 
 {% highlight javascript linenos %}
-  var obj = {
-  a: {
-  b: {
-  c: 'hi',
-     d: {
-  e:'hi'
-     }
-     },
-  l1: { t:123,t2:'hi',t3:'hi'},
-      l2: 345
-     },
-  test: {oo:'OO'}
-  };
+    var obj = {
+    a: {
+    b: {
+    c: 'hi',
+       d: {
+    e:'hi'
+       }
+       },
+    l1: { t:123,t2:'hi',t3:'hi'},
+        l2: 345
+       },
+    test: {oo:'OO'}
+    };
 
-  function demo(obj, tar, path = [], i = {
-  count: 0
-  }, isConsole = true,last = null) {
-    // update path
+  function findPaths(obj={},tar='',path=[], last=null) {
+    // copy path
     path = path.slice();
-
-    for (let key in obj) {
-      // if found tar will update path, but last does not update
-      console.log('last: ' + last + ' path: ' +path.slice().pop());
-      if(last !== path.slice().pop()) path.pop();
-      let str = obj[key];
-      if (typeof str === 'string' && ~str.indexOf(tar)) {
-        //if(path.pop() == last) path.pop();            
-        path.push(key);
-        i.count++;
-        console.log(path.join('->'), obj[key]);
+    // loop object
+    for(var k in obj) {
+      // check last
+      let oldLast = path.slice().pop();
+      if(last !== null && last !== oldLast) path.pop();
+      // find it
+      if(typeof obj[k] === 'string' && ~obj[k].indexOf(tar)) {
+        path.push(k);
+        console.log(`path is ${path.join('->')}`);
       }
-      if (typeof obj[key] === 'object') {
-        // make new path to recursive
+      // no found then recursive
+      if(typeof obj[k] === 'object') {
         let arr = path.slice();
-        arr.push(key);
-        demo(obj[key], tar, arr, i, false, key);
-
+        arr.push(k);
+        // make k be last ele
+        findPaths(obj[k], tar, arr, k);
       }
-    }
-    if (isConsole && i.count > 0) {
-      console.log(i.count);
     }
   }
-  demo(obj,'hi');
+
+  findPaths(obj,'hi');
 {% endhighlight %}
 
-##Question:
+## Question:
 
 {% highlight javascript linenos %}
   <ul id="list" class="foo">
@@ -83,94 +77,103 @@ excerpt: Some collection of Front-End interview answers
 
 - Add a class name bar to ul
 - Delete 10th li
-- Add a li text is '<v2ex.com/>' after 500th li
+- Add a li text is '<test.com/>' after 500th li
 - Show li num in current list when click any li
 
-##Answear
+## Answear
 
 {% highlight javascript linenos %}
-  // init DOM structure
-  var list = document.getElementById('list');
+  // init DOM
   var fragment = document.createDocumentFragment();
+  var list = document.createElement('div');
+  list.id = 'list';
 
+  // iife
   void function() {
-    var li;
-    for(var i =0; i <=10000; i++) {
-      if(i === 1) {
-        li = make(['li','#1']);
-        fragment.appendChild(li);
-      } else if(i === 4) {
-        li = make(['li',['ul',['li','#4']]]);
-        fragment.appendChild(li);
-      } else if(i === 9998) {
-        li = make(['li',['a',{href:'//test.com'}, '#9998']]);
-        fragment.appendChild(li);
-      } else {
-        li = make(['li',`#${i}`]);
-        fragment.appendChild(li);
-      }
+  var li;
+  for( var i = 0; i < 10; i++) {
+    if(i === 1) {
+      li = make(['li',['span',`#${i}`]]);
+      fragment.appendChild(li)
+    } else if(i === 4) {
+      li = make(['li',['ul',['li',`#${i}`]]]);
+      fragment.appendChild(li);
+    } else if(i === 6) {
+      li = make(['li',['a',{href:'//test.com'},`###${i}`]]);
+      fragment.appendChild(li);
     }
-    list.appendChild(fragment);
-  } ();
+
+    else {
+      li = make(['li',`#${i}`]);
+      fragment.appendChild(li);
+    }
+
+  }
+  list.appendChild(fragment);
+  document.body.appendChild(list);
+  }();
 
   // add class
-  list.className += 'bar';
+  list.addClass += 'bar';
 
-  // remove items, 1-base
-  var li10 = document.querySelector('#list > li:nth-of-type(11)');
-  li10.parentNode.removeChild(li10);
+  // remove ele
+  // nth-of-type is 1-base
+  var li3 = list.querySelector('li:nth-of-type(3)');
+  li3.parentNode.removeChild(li3);
 
-  // because after del a node
-  var li500 = document.querySelector('#list > li:nth-of-type(501)');
-  var newItem = make(['li','<test.com/>']);
-  li500.appendChild(make(['li','<test.com/>']))
+  // add ele
+  var li8 = list.querySelector('li:nth-of-type(8)');
+  list.insertBefore(make(['li','<test.com/>']),li8);
 
-  list.addEventListener('click', function(e) {
+  // show li num in current list when clicked
+  list.addEventListener('click',liHandle);
+
+  function liHandle(e) {
     var target = e.target || e.srcElement;
-
-    // clicked list ul
-    if(target.id === list) return ;
-
-    // back to parent if not li 
+    if(target.id === 'list') {
+      console.log('not a li');
+      retrun;
+    }
     while(target.nodeName !== 'LI') {
       target = target.parentNode;
     }
-
-    var parentUl = target.parentNode;
-    var children = parentUl.childNodes;
+    var parentUI = target.parentNode;
+    var children = parentUI.childNodes;
     var count = 0;
     var node;
-
-    for(var i =0; i < children.length; i++ ) {
+    for(var i = 0; i < children.length; i++) {
       node = children[i];
-      if(node.nodeName === 'LI') count++;
+      if(node.nodeName === 'LI') {
+        count++;
+      }
       if(node === target) {
-        alert(`No. ${count} of current list`);
+        alert(`NO. ${count} of the current list`);
         break;
       }
     }
-  });
 
+  }
+
+  // create DOM
+  // arguments is array
+  // return DOM element
   function make(desc) {
-    if(!Array.isArray) desc = [...desc];
-    // get first element
-    var el = desc.shift();
-    for(var i = 0; i < desc.length; i++;) {
-      // check if it's array then recursion
+    if(!Array.isArray(desc)) desc = [...desc];
+    var el = document.createElement(desc.shift());
+    for(var i = 0; i < desc.length; i++) {
       if(Array.isArray(desc[i])) {
-        el.appendChild(make.call(this, desc[i]));
-      } else if(
-        typeof desc[i] === 'Object'
+        el.appendChild(make(desc[i]));
+      } else if (
+        typeof desc[i] === 'object'
         && desc[i] !== null
-        && !Array.isArray(desc[i])
       ) {
-        for (var attr in desc[i]) {
-          el[attr] = desc[i][attr];
+        for(var k in desc[i]) {
+          el[k] = desc[i][k];
         }
       } else {
         el.appendChild(document.createTextNode(desc[i]));
       }
     }
-    retrun el;
+    return el;
   }
 {% endhighlight %}
