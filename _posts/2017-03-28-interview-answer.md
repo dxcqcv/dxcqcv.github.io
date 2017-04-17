@@ -25,30 +25,26 @@ excerpt: Some collection of Front-End interview answers
     test: {oo:'OO'}
     };
 
-  function findPaths(obj={},tar='',path=[], last=null) {
-    // copy path
-    path = path.slice();
-    // loop object
-    for(var k in obj) {
-      // check last
-      let oldLast = path.slice().pop();
-      if(last !== null && last !== oldLast) path.pop();
-      // find it
-      if(typeof obj[k] === 'string' && ~obj[k].indexOf(tar)) {
+  function find(obj = {}, tar = '', path = []) {
+    for(let k in obj) {
+
+      if(obj[k] === tar) {
         path.push(k);
-        console.log(`path is ${path.join('->')}`);
+        console.log(`Find ${tar} and path is  ${path.join('->')}`);
+        path.pop();
       }
-      // no found then recursive
+
       if(typeof obj[k] === 'object') {
-        let arr = path.slice();
+        let arr = path;
         arr.push(k);
-        // make k be last ele
-        findPaths(obj[k], tar, arr, k);
+        find(obj[k], tar, arr, k);
       }
     }
+    path.pop();
   }
 
-  findPaths(obj,'hi');
+  find(obj,'hi');
+
 {% endhighlight %}
 
 ## Question:
