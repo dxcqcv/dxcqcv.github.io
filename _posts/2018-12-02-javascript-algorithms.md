@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: Javascript Algorithms
+title: Javascript Algorithms
 tags:
 - interview 
 excerpt: Share some useful js algorithms

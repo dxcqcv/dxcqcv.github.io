@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: ES6 demos 
+title: ES6 demos 
 tags:
 - interview 
 excerpt: Share some ES6 demos to understand 

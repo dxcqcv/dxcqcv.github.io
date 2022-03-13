@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: permalink conflict in github pages 
+title: permalink conflict in github pages 
 tags:
 - permalink
 - github pages

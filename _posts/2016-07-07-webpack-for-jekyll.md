@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: webpack for jekyll
+title: webpack for jekyll
 tags:
 - webpack
 - jekyll

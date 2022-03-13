@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: Gemfile requires Y error
+title: Gemfile requires Y error
 tags:
 - jekyll
 - gulp

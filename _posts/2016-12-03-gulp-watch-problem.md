@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: Gulp 4 alpha watch only work once
+title: Gulp 4 alpha watch only work once
 tags:
 - gulp 4
 - gulp task watch

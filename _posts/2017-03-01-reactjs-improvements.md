@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: ReactJs improvements after tutorial 
+title: ReactJs improvements after tutorial 
 tags:
 - reactjs  
 - tutorials 

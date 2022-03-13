@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: pug-loader cannot be passed data or locals in webpack
+title: pug-loader cannot be passed data or locals in webpack
 tags:
 - pug-loader
 - webpack

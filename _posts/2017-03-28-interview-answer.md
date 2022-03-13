@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: Front-End interview answers 
+title: Front-End interview answers 
 tags:
 - interview 
 excerpt: Some collection of Front-End interview answers 
