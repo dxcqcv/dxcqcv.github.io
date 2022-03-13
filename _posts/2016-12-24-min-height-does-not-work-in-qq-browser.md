@@ -1,6 +1,6 @@
 ---
 layout: post
-tilte: min-height auto property doesn't work in qq browsers 
+title: min-height auto property doesn't work in qq browsers 
 tags:
 - min-height  
 - qq browsers 
