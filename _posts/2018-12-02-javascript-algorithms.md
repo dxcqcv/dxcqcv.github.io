@@ -21,7 +21,7 @@ excerpt: Share some useful js algorithms
 
 大O符号中指定的算法的增长顺序。
 
-![Big O graphs](../images/big-o-graph.png)
+![Big O graphs](/images/big-o-graph.png)
 
 源: [Big O Cheat Sheet](http://bigocheatsheet.com/).
 
