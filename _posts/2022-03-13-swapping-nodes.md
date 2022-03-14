@@ -39,7 +39,7 @@ n1.next = n2.next
 ```javascript
 n2.next = n1
 ```
-![N2 node link to N1 node](../images/swappingNodes/N2ToN1.jpg)
+![N2 node link to N1 node](/images/swappingNodes/N2ToN1.jpg)
 
 6. After this iteration, Nodes 1 and 2 will get swapped and our linked list will look like this
 ![After iteration](/images/swappingNodes/AfterIteration.jpg)	
@@ -49,7 +49,7 @@ n2.next = n1
 prev = n1
 head = n1.next
 ```
-![for next iteration](../images/swappingNodes/forNextIteration.jpg)
+![for next iteration](/images/swappingNodes/forNextIteration.jpg)
 
 8. We should stop this procedure when either there is no nodes left to swap or there is only one node left which cannot be swapped with any node.
 9. At the end, as we can see that our head of the list has been misplaced in the procedure of swapping, so we can return `dummy.next` to return the swapped linked list.
