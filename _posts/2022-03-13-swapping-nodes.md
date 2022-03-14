@@ -17,6 +17,7 @@ LeetCode will give you a link, you need swap it exactly, like follow pic
 ### Let's understand the **approach**
 
 1. First, we will place a `dummy node` before a `head node` so that the code we write can be applicable to the head node also, and we don't have to specifically write different conditions for the head node.
+
 ![add dummy node before head node](/images/swappingNodes/addDummyNode.jpg)
 
 2. Now, let the head be our `n1 node` and next be `n2 node`, that means `node with value 1` is `n1` and `node with value 2` is `n2`, and we have to swap `n1` and `n2`. So for this, we will also have to keep track of the node previous to `n1 node`, let it be `prev`, as it's next pointer value will have to change after we swap the `n1 node` and `n2 node`
@@ -88,5 +89,49 @@ var swapPairs = function(head) {
 Complexity:
 TC = O(n)
 SC = O(1)
+
+
+### Another solution: recursion
+1. First, we set some rules to stop recursion, if no current node or next node, stop recursion
+```javascript
+if(!head || !head.next) return head
+```
+
+2. Now we make three variables that `v1` represent current node and `v2` is next node and `v3` is node next the `v2` for recursion
+```javascript
+let v1 = head
+let v2 = v1.next
+let v3 = v2.next
+```
+![first recursion](/images/swappingNodes/firstRecursion.jpg)   
+
+3. Now we change `v2` link to `v1`. And we assign recursion `v3` to `v1`. That means
+```javascript
+v1.next = recursionFn(v3)
+```
+![second recursion](/images/swappingNodes/secondRecursion.jpg)
+ 
+4. Why do we always return `v2`? Because after swap nodes, v2 represent the first node in the list, the first time is `node with value 2`, the second time is `node with value 4`
+
+### code
+```javascript
+var swapPairs = function(head) {
+    // recursion terminator
+    if(!head || !head.next) return head
+    // process logic in current level
+    let v1 = head
+    let v2 = v1.next
+    let v3 = v2.next
+    v2.next = v1
+    // drill down
+    v1.next = swapPairs(v3)
+    return  v2
+}
+```
+
+Complexity
+TC = O(N)
+SC = O(1)
+
 ### reference
 [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
